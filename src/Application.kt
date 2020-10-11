@@ -5,6 +5,7 @@ import io.ktor.html.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import kotlinx.coroutines.delay
 import kotlinx.html.body
 import kotlinx.html.h1
 import kotlinx.html.li
@@ -19,6 +20,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module(testing: Boolean = false) {
     routing {
         get("/") {
+            delay(5000)
             call.respondText(Character().toString(), contentType = ContentType.Text.Plain)
         }
 
